@@ -83,6 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TABLE_GENDER, null, valuesGender);
         valuesGender.put(COLUMN_GENDER_GROUP, "Female");
         db.insert(TABLE_GENDER, null, valuesGender);
+        valuesGender.put(COLUMN_GENDER_GROUP, "No gender");
 
         Log.i(LOGTAG, "Gender values inserted.");
 
@@ -96,21 +97,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TABLE_TYPE, null, valuesType);
         valuesType.put(COLUMN_TYPE_GROUP, "Verb");
         db.insert(TABLE_TYPE, null, valuesType);
+        valuesType.put(COLUMN_TYPE_GROUP, "Other");
+        db.insert(TABLE_TYPE, null, valuesType);
 
         Log.i(LOGTAG, "Type values inserted.");
-
-        //DUMMY DATA FOR TESTING
-        /*
-        ContentValues valuesWord = new ContentValues();
-        valuesType.put(COLUMN_WORD_ID, 1);
-        valuesType.put(COLUMN_WORD_WORD, "Häst");
-        valuesType.put(COLUMN_WORD_TRANSLATION, "Horse");
-        valuesType.put(COLUMN_WORD_SENTENCEHINDI, "Badaa ghar hai.");
-        valuesType.put(COLUMN_WORD_SENTENCEENG, "A big horse.");
-        valuesType.put(COLUMN_WORD_GENDERID, 1);
-        valuesType.put(COLUMN_WORD_TYPEID, 3);
-        valuesType.put(COLUMN_WORD_DIFFICULT, 0);
-        */
     }
 
     @Override
@@ -143,7 +133,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //Set gender name -> getGenderGroupName
         setWordGenderGroup(word);
         //Set typename -> getTypeName
-        //word.setWordTypeGroup();
+        setWordTypeGroup(word);
     }
 
     //Get all type values
@@ -192,12 +182,27 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.query(TABLE_GENDER, null, selection, selectionArgs, null, null, null, null);
 
-
         if (c.getCount() > 0) {
             c.moveToFirst();
             String genderGroup = c.getString(1);
             word.setWordGenderGroup(genderGroup);
             Log.d(LOGTAG, "Word " + word.getWordWord() + " Gender group set as " + genderGroup);
+        }
+        c.close();
+    }
+
+    public void setWordTypeGroup(Word word) {
+        long id = word.getWordTypeId();
+        String selection = COLUMN_TYPE_ID + "=?";
+        String[] selectionArgs = new String[] {Long.toString(id)};
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(TABLE_TYPE, null, selection, selectionArgs, null, null, null, null);
+
+        if (c.getCount() > 0) {
+            c.moveToFirst();
+            String typeGroup = c.getString(1);
+            word.setWordTypeGroup(typeGroup);
+            Log.d(LOGTAG, "Word " + word.getWordWord() + " type group set as " + typeGroup);
         }
         c.close();
     }

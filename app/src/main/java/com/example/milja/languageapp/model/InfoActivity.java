@@ -1,8 +1,15 @@
 package com.example.milja.languageapp.model;
 
-/**
- * Created by Milja on 2018-02-06.
- */
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class InfoActivity {
+import com.example.milja.languageapp.R;
+
+public class InfoActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_info);
+    }
 }

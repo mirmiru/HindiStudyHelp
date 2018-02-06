@@ -11,10 +11,10 @@ public class Word {
     private String wordTranslation;
     private String wordSentenceHindi;
     private String wordSentenceEng;
-    private int wordDifficult;
-    private long wordGenderId;
+    private int wordDifficult = 3;
+    private long wordGenderId = 3;
     private String wordGenderGroup;
-    private long wordTypeId;
+    private long wordTypeId = 5;
     private String wordTypeGroup;
 
     //Empty constructor

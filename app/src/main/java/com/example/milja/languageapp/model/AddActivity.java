@@ -1,5 +1,6 @@
 package com.example.milja.languageapp.model;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -122,6 +123,10 @@ public class AddActivity extends AppCompatActivity {
         Word word = new Word(wordHindi, wordEng, sentenceHindi, sentenceEng, checkBoxValue, genderValue, typeValue);
         dbHelper.addWord(word);
         //TODO: Display toast and move to new activity
+        Intent intent = new Intent(this, InfoActivity.class);
+        intent.putExtra("WordId", word.getWordId());
+        startActivity(intent);
+        finish();
     }
 
 
