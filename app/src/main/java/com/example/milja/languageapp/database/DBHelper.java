@@ -135,6 +135,15 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_WORD_GENDERID, word.getWordGenderId());
         values.put(COLUMN_WORD_TYPEID, word.getWordTypeId());
         values.put(COLUMN_WORD_DIFFICULT, word.getWordDifficult());
+
+        //Set word id
+        long id = db.insert(TABLE_WORD, null, values);
+        word.setWordId(id);
+
+        //Set gender name -> getGenderGroupName
+        setWordGenderGroup(word);
+        //Set typename -> getTypeName
+        //word.setWordTypeGroup();
     }
 
     //Get all type values
@@ -174,5 +183,22 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         c.close();
         return genderList;
+    }
+
+    public void setWordGenderGroup(Word word) {
+        long id = word.getWordId();
+        String selection = COLUMN_GENDER_ID +"=?";
+        String[] selectionArgs = new String[] {Long.toString(id)};
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(TABLE_GENDER, null, selection, selectionArgs, null, null, null, null);
+
+
+        if (c.getCount() > 0) {
+            c.moveToFirst();
+            String genderGroup = c.getString(1);
+            word.setWordGenderGroup(genderGroup);
+            Log.d(LOGTAG, "Word " + word.getWordWord() + " Gender group set as " + genderGroup);
+        }
+        c.close();
     }
 }

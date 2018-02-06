@@ -13,14 +13,15 @@ public class Word {
     private String wordSentenceEng;
     private int wordDifficult;
     private long wordGenderId;
+    private String wordGenderGroup;
     private long wordTypeId;
+    private String wordTypeGroup;
 
     //Empty constructor
     public Word() {}
 
-    //Constructor with all arguments
-    public Word(long wordId, String wordWord, String wordTranslation, String wordSentenceHindi, String wordSentenceEng, int wordDifficult, long wordGenderId, long wordTypeId) {
-        this.wordId = wordId;
+    //Constructor with all arguments (not id)
+    public Word(String wordWord, String wordTranslation, String wordSentenceHindi, String wordSentenceEng, int wordDifficult, long wordGenderId, long wordTypeId) {
         this.wordWord = wordWord;
         this.wordTranslation = wordTranslation;
         this.wordSentenceHindi = wordSentenceHindi;
@@ -88,11 +89,27 @@ public class Word {
         this.wordGenderId = wordGenderId;
     }
 
+    public String getWordGenderGroup() {
+        return wordGenderGroup;
+    }
+
+    public void setWordGenderGroup(String wordGenderGroup) {
+        this.wordGenderGroup = wordGenderGroup;
+    }
+
     public long getWordTypeId() {
         return wordTypeId;
     }
 
     public void setWordTypeId(long wordTypeId) {
         this.wordTypeId = wordTypeId;
+    }
+
+    public String getWordTypeGroup() {
+        return wordTypeGroup;
+    }
+
+    public void setWordTypeGroup(String wordTypeGroup) {
+        this.wordTypeGroup = wordTypeGroup;
     }
 }

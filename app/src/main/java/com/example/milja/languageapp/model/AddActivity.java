@@ -25,11 +25,10 @@ public class AddActivity extends AppCompatActivity {
 
     private String wordHindi;
     private String wordEng;
-    private long checkBoxValue;
+    private int checkBoxValue = 1;
     private Type type = new Type();
-    private long radioButtonValue;
-    private long typeValue;
-    private long genderValue;
+    private int typeValue = 5;
+    private int genderValue = 3;
     private String sentenceHindi;
     private String sentenceEng;
 
@@ -42,7 +41,6 @@ public class AddActivity extends AppCompatActivity {
     private RadioButton radioFemale;
     private EditText editTextHindiSentence;
     private EditText editTextEngSentence;
-
 
     DBHelper dbHelper = new DBHelper(this);
 
@@ -81,14 +79,14 @@ public class AddActivity extends AppCompatActivity {
         this.wordHindi = editTextHindiWord.getText().toString();
         this.wordEng = editTextEngWord.getText().toString();
 
-        //this.checkBoxValue = checkBoxDifficult.getText().toString();
-
         this.type = (Type)spinnerType.getSelectedItem();
-        this.typeValue = type.getTypeId();
+        this.typeValue = (int)type.getTypeId();
+        Log.d("MyLog", "Word type: " + typeValue);
 
         this.sentenceHindi = editTextHindiSentence.getText().toString();
         this.sentenceEng = editTextEngSentence.getText().toString();
 
+        addWord();
     }
 
     //Get radiobutton value
@@ -98,19 +96,30 @@ public class AddActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.radioButtonMale:
                 if(checked)
-                    radioButtonValue = 1;
+                    genderValue = 1;
                 Log.d("MyLog", "Chose male");
                 break;
             case R.id.radioButtonFemale:
                 if(checked)
-                    radioButtonValue = 2;
+                    genderValue = 2;
                 Log.d("MyLog", "Chose female");
                 break;
         }
     }
 
+    //Get checkbox value
+    public void onCheckBoxClick(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        if(checked) {
+            Log.d("MyLog", "Checked as difficult.");
+            checkBoxValue = 2;
+        } else {
+            checkBoxValue = 1;
+        }
+    }
+
     public void addWord() {
-        Word word = new Word();
+        Word word = new Word(wordHindi, wordEng, sentenceHindi, sentenceEng, checkBoxValue, genderValue, typeValue);
         dbHelper.addWord(word);
         //TODO: Display toast and move to new activity
     }
