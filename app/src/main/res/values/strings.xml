@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">LanguageApp</string>
+    <string name="labelHindi">Hindi:</string>
+    <string name="labelEnglish">English:</string>
+    <string name="labelGender">Gender:</string>
+    <string name="checkBoxLabel">Male</string>
+    <string name="checkBoxLabel2">Female</string>
+    <string name="typeLabel">Word type:</string>
+    <string name="sentenceHindiLabel">Example sentence (Hindi):</string>
+    <string name="sentenceEngLabel">Example sentence (English):</string>
+    <string name="add">Add</string>
+    <string name="list">List</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="buttonAdd">Add</string>
+    <string name="buttonSearch">Search</string>
+    <string name="radioValueMale">Male</string>
+    <string name="radioButtonValue2">Female</string>
+    <string name="checkBoxDifficult">Difficult</string>
+</resources>
