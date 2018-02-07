@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
@@ -28,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Word table
     public static final String TABLE_WORD = "word";
-    public static final String COLUMN_WORD_ID = "wordId";
+    public static final String COLUMN_WORD_ID = "_id";
     public static final String COLUMN_WORD_WORD = "wordWord";
     public static final String COLUMN_WORD_TRANSLATION = "wordTranslation";
     public static final String COLUMN_WORD_SENTENCEHINDI = "wordSentenceHindi";
@@ -50,7 +51,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Gender table
     public static final String TABLE_GENDER = "gender";
-    public static final String COLUMN_GENDER_ID = "genderId";
+    public static final String COLUMN_GENDER_ID = "_id";
     public static final String COLUMN_GENDER_GROUP = "genderGroup";
     private static final String TABLE_GENDER_CREATE =
             "CREATE TABLE " + TABLE_GENDER + " (" +
@@ -60,7 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Type table
     public static final String TABLE_TYPE = "type";
-    public static final String COLUMN_TYPE_ID = "typeId";
+    public static final String COLUMN_TYPE_ID = "_id";
     public static final String COLUMN_TYPE_GROUP = "typeGroup";
     private static final String TABLE_TYPE_CREATE =
             "CREATE TABLE " + TABLE_TYPE + " (" +
@@ -84,6 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
         valuesGender.put(COLUMN_GENDER_GROUP, "Female");
         db.insert(TABLE_GENDER, null, valuesGender);
         valuesGender.put(COLUMN_GENDER_GROUP, "No gender");
+        db.insert(TABLE_GENDER, null, valuesGender);
 
         Log.i(LOGTAG, "Gender values inserted.");
 
@@ -136,6 +138,32 @@ public class DBHelper extends SQLiteOpenHelper {
         setWordTypeGroup(word);
     }
 
+    public Word getWordById(long id) {
+        String selection = COLUMN_WORD_ID + "=?";
+        String[] selectionArgs = new String[] {Long.toString(id)};
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query(TABLE_WORD, null, selection, selectionArgs, null, null, null);
+
+        Word word = new Word();
+
+        if (c.moveToFirst()) {
+            do {
+                word.setWordId(c.getLong(0));
+                word.setWordWord(c.getString(1));
+                word.setWordTranslation(c.getString(2));
+                word.setWordSentenceHindi(c.getString(3));
+                word.setWordSentenceEng(c.getString(4));
+                word.setWordGenderGroup(c.getString(5));
+                word.setWordTypeGroup(c.getString(6));
+                word.setWordDifficult(c.getInt(7));
+                Log.d("MyLog", "INSERTED: " + word.getWordId() + ", " + word.getWordWord() + ", " + word.getWordTranslation() + ", " + word.getWordSentenceHindi() + ", " + word.getWordSentenceEng() + ", " + word.getWordGenderGroup() + ", " + word.getWordTypeGroup() + ", " + word.getWordDifficult() );
+            } while (c.moveToNext());
+        }
+        c.close();
+
+        return word;
+    }
+
     //Get all type values
     public List<Type> getAllTypes() {
         List<Type> typeList = new ArrayList<>();
@@ -150,11 +178,23 @@ public class DBHelper extends SQLiteOpenHelper {
                 type.setTypeId(c.getLong(0));
                 type.setTypeGroup(c.getString(1));
                 typeList.add(type);
+                Log.d("MyLog", "Type: " + type.getTypeId() + ", " + type.getTypeGroup());
             } while (c.moveToNext());
         }
         c.close();
         return typeList;
     }
+
+    //Get all words
+    public Cursor getAllWordsCursor() {
+        SQLiteDatabase db = getReadableDatabase();
+
+        long rows = DatabaseUtils.queryNumEntries(db, TABLE_WORD);
+        Log.d("MyLog", "Rows: " + rows);
+
+        return db.query(TABLE_WORD, null, null, null, null, null, null);
+    }
+
 
     //Get all gender values
     public List<Gender> getAllGenders() {
@@ -169,6 +209,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 gender.setGenderId(c.getLong(0));
                 gender.setGenderGroup(c.getString(1));
                 genderList.add(gender);
+
+                Log.d("MyLog", "Gender: " + gender.getGenderId() + ", " + gender.getGenderGroup());
             } while (c.moveToNext());
         }
         c.close();

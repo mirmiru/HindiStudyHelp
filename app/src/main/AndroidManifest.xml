@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".model.AddActivity"></activity>
+        <activity android:name=".model.AddActivity" />
+        <activity android:name=".model.InfoActivity" />
+        <activity android:name=".model.ListViewActivity"></activity>
     </application>
 
 </manifest>

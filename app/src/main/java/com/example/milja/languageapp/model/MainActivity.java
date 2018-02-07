@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //TEST
+        //dbHelper.getAllGenders();
+        //dbHelper.getAllTypes();
+        //dbHelper.getWordById(1);
+
     }
 
     @Override
@@ -36,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_add:
                 Intent addIntent = new Intent(this, AddActivity.class);
                 this.startActivity(addIntent);
+                break;
+            case R.id.action_list:
+                Intent listIntent = new Intent(this, ListViewActivity.class);
+                this.startActivity(listIntent);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.milja.languageapp.model.AddActivity" />
+        <activity android:name="com.example.milja.languageapp.model.InfoActivity" />
+        <activity android:name="com.example.milja.languageapp.model.ListViewActivity" />
 
         <meta-data
             android:name="android.support.VERSION"
