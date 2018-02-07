@@ -50,6 +50,7 @@
         android:id="@+id/checkBoxDifficult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onCheckBoxClick"
         android:text="@string/checkBoxDifficult"
         app:layout_constraintStart_toEndOf="@id/editTextHindiWord"
         app:layout_constraintTop_toTopOf="@id/editTextHindiWord" />

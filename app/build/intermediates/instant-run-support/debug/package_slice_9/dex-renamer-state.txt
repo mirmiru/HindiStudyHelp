@@ -1,4 +1,4 @@
-#Tue Feb 06 09:27:55 CET 2018
-base.0=/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/transforms/dexMerger/debug/9
+#Wed Feb 07 20:40:03 CET 2018
+base.0=/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/transforms/dexMerger/debug/28
 renamed.0=classes.dex
-file.0=/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/transforms/dexMerger/debug/9/classes.dex
+file.0=/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/transforms/dexMerger/debug/28/classes.dex

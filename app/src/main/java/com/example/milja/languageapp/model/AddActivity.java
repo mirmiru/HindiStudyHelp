@@ -115,6 +115,7 @@ public class AddActivity extends AppCompatActivity {
             Log.d("MyLog", "Checked as difficult.");
             checkBoxValue = 2;
         } else {
+            Log.d("MyLog", "Not difficult.");
             checkBoxValue = 1;
         }
     }
