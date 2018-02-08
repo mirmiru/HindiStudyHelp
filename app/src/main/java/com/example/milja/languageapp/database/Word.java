@@ -11,17 +11,17 @@ public class Word {
     private String wordTranslation;
     private String wordSentenceHindi;
     private String wordSentenceEng;
-    private int wordDifficult = 3;
-    private long wordGenderId = 3;
+    private int wordDifficult;
+    private long wordGenderId;
     private String wordGenderGroup;
-    private long wordTypeId = 5;
+    private long wordTypeId;
     private String wordTypeGroup;
 
     //Empty constructor
     public Word() {}
 
     //Constructor with all arguments (not id)
-    public Word(String wordWord, String wordTranslation, String wordSentenceHindi, String wordSentenceEng, int wordDifficult, long wordGenderId, long wordTypeId) {
+    public Word(String wordWord, String wordTranslation, String wordSentenceHindi, String wordSentenceEng, long wordGenderId, long wordTypeId, int wordDifficult) {
         this.wordWord = wordWord;
         this.wordTranslation = wordTranslation;
         this.wordSentenceHindi = wordSentenceHindi;

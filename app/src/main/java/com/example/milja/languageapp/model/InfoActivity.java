@@ -48,7 +48,25 @@ public class InfoActivity extends AppCompatActivity {
     private void showWordInfo() {
         this.textViewHindiWord.setText(word.getWordWord());
         this.textViewEngWord.setText(word.getWordTranslation());
-        this.textViewType.setText(word.getWordTypeGroup());
+        String typeString = "";
+        switch ((int)word.getWordTypeId()) {
+            case 1:
+                typeString = "Adj.";
+                break;
+            case 2:
+                typeString = "Adv.";
+                break;
+            case 3:
+                typeString = "Noun";
+                break;
+            case 4:
+                typeString = "Verb";
+                break;
+            case 5:
+                typeString = "Other";
+                break;
+        }
+        this.textViewType.setText(typeString);
     }
 }
 

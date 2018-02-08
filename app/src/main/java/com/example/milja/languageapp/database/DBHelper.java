@@ -138,25 +138,50 @@ public class DBHelper extends SQLiteOpenHelper {
         setWordTypeGroup(word);
     }
 
+
     public Word getWordById(long id) {
-        String selection = COLUMN_WORD_ID + "=?";
-        String[] selectionArgs = new String[] {Long.toString(id)};
+        //String selection = COLUMN_WORD_ID + "=?";
+        //String[] selectionArgs = new String[] {Long.toString(id)};
         SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.query(TABLE_WORD, null, selection, selectionArgs, null, null, null);
+        //Cursor c = db.query(TABLE_WORD, null, selection, selectionArgs, null, null, null);
+
+        String query = "SELECT * FROM " +
+                "word INNER JOIN type ON " +
+                "word.wordTypeId =  type._id " +
+                "INNER JOIN gender ON " +
+                "word.wordGenderId = gender._id " +
+                "WHERE word._id=" + id;
+
+        Cursor c = db.rawQuery(query, null);
 
         Word word = new Word();
 
         if (c.moveToFirst()) {
             do {
-                word.setWordId(c.getLong(0));
-                word.setWordWord(c.getString(1));
-                word.setWordTranslation(c.getString(2));
-                word.setWordSentenceHindi(c.getString(3));
-                word.setWordSentenceEng(c.getString(4));
-                word.setWordGenderGroup(c.getString(5));
-                word.setWordTypeGroup(c.getString(6));
-                word.setWordDifficult(c.getInt(7));
-                Log.d("MyLog", "INSERTED: " + word.getWordId() + ", " + word.getWordWord() + ", " + word.getWordTranslation() + ", " + word.getWordSentenceHindi() + ", " + word.getWordSentenceEng() + ", " + word.getWordGenderGroup() + ", " + word.getWordTypeGroup() + ", " + word.getWordDifficult() );
+                //word.setWordId(c.getLong(0));
+                word.setWordId(c.getLong(c.getColumnIndex(DBHelper.COLUMN_WORD_ID)));
+
+                //word.setWordWord(c.getString(1));
+                word.setWordWord(c.getString(c.getColumnIndex(DBHelper.COLUMN_WORD_WORD)));
+
+                //word.setWordTranslation(c.getString(2));
+                word.setWordTranslation(c.getString(c.getColumnIndex(DBHelper.COLUMN_WORD_TRANSLATION)));
+
+                //word.setWordSentenceHindi(c.getString(3));
+                word.setWordSentenceHindi(c.getString(c.getColumnIndex(DBHelper.COLUMN_WORD_SENTENCEHINDI)));
+
+                //word.setWordSentenceEng(c.getString(4));
+                word.setWordSentenceEng(c.getString(c.getColumnIndex(DBHelper.COLUMN_WORD_SENTENCEENG)));
+
+                //word.setWordGenderGroup(c.getString(5));
+                word.setWordGenderId(c.getLong(c.getColumnIndex(DBHelper.COLUMN_WORD_GENDERID)));
+                word.setWordGenderGroup(c.getString(c.getColumnIndex(DBHelper.COLUMN_GENDER_GROUP)));
+
+                word.setWordTypeId(c.getLong(c.getColumnIndex(DBHelper.COLUMN_WORD_TYPEID)));
+                word.setWordTypeGroup(c.getString(c.getColumnIndex(DBHelper.COLUMN_TYPE_GROUP)));
+
+                word.setWordDifficult(c.getInt(c.getColumnIndex(DBHelper.COLUMN_WORD_DIFFICULT)));
+                Log.d("MyLog", "INSERTED: " + word.getWordId() + ", " + word.getWordWord() + ", " + word.getWordTranslation() + ", " + word.getWordSentenceHindi() + ", " + word.getWordSentenceEng() + ", gender: " + word.getWordGenderId() + ", " + word.getWordGenderGroup() + ", type: "+ word.getWordTypeId() + ", "+ word.getWordTypeGroup() + ", diff: " + word.getWordDifficult() );
             } while (c.moveToNext());
         }
         c.close();

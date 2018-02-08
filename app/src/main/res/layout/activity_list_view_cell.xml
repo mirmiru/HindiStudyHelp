@@ -8,8 +8,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="17dp"
         android:text="TextView"
         android:textSize="24sp" />
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textViewWord"
         android:layout_below="@+id/textViewWord"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="13dp"
         android:text="TextView"
         android:textSize="18sp"
         android:textStyle="italic" />
@@ -30,8 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textViewWord"
-        android:layout_marginEnd="23dp"
+        android:layout_marginEnd="13dp"
         android:text="TextView"
+        android:textAlignment="textEnd"
         android:textSize="18sp" />
 
 </RelativeLayout>

@@ -82,8 +82,6 @@ public class AddActivity extends AppCompatActivity {
 
         this.type = (Type)spinnerType.getSelectedItem();
         this.typeValue = (int)type.getTypeId();
-        Log.d("MyLog", "Word type: " + typeValue);
-
         this.sentenceHindi = editTextHindiSentence.getText().toString();
         this.sentenceEng = editTextEngSentence.getText().toString();
 
@@ -121,8 +119,9 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void addWord() {
-        Word word = new Word(wordHindi, wordEng, sentenceHindi, sentenceEng, checkBoxValue, genderValue, typeValue);
+        Word word = new Word(wordHindi, wordEng, sentenceHindi, sentenceEng, genderValue, typeValue, checkBoxValue);
         dbHelper.addWord(word);
+        Log.d("MyLog", "ADD ACT: " + word.getWordId() + ", " + word.getWordWord() + ", " + word.getWordTranslation() + ", " + word.getWordSentenceHindi() + ", " + word.getWordSentenceEng() + ", gender: " + word.getWordGenderId() + ", " + word.getWordGenderGroup() + ", type: "+ word.getWordTypeId() + ", "+ word.getWordTypeGroup() + ", diff: " + word.getWordDifficult() );
         //TODO: Display toast and move to new activity
         Intent intent = new Intent(this, InfoActivity.class);
         intent.putExtra("WordId", word.getWordId());

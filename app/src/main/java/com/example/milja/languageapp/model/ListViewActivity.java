@@ -27,7 +27,7 @@ public class ListViewActivity extends AppCompatActivity {
         findViews();
         createCursorAdapter();
 
-        //TODO: Setonitemclicklistener for moving to info for specific word when pressed
+        //Move to info view for word
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
