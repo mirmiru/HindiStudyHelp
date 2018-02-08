@@ -16,4 +16,6 @@
     <string name="radioValueMale">Male</string>
     <string name="radioButtonValue2">Female</string>
     <string name="checkBoxDifficult">Difficult</string>
+    <string name="RemoveWord">remove_word</string>
+    <string name="Remove">Remove</string>
 </resources>

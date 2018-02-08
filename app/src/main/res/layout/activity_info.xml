@@ -7,6 +7,19 @@
     tools:context="com.example.milja.languageapp.model.InfoActivity">
 
     <TextView
+        android:id="@+id/textViewSentEng"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:lines="1"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSentHindi"
+        tools:text="Explore the history of the classic Lorem Ipsum passage and generate your own text using any number of characters, words, sentences or paragraphs." />
+
+    <TextView
         android:id="@+id/textViewHindiWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,4 +53,18 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSentHindi"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:lines="1"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEngWord"
+        tools:text="Explore the history of the classic Lorem Ipsum passage and generate your own text using any number of characters, words, sentences or paragraphs." />
+
 </android.support.constraint.ConstraintLayout>

@@ -1,13 +1,19 @@
 package com.example.milja.languageapp.model;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.milja.languageapp.R;
 import com.example.milja.languageapp.database.DBHelper;
 import com.example.milja.languageapp.database.Word;
+
+import org.w3c.dom.Text;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -19,6 +25,8 @@ public class InfoActivity extends AppCompatActivity {
     private TextView textViewHindiWord;
     private TextView textViewEngWord;
     private TextView textViewType;
+    private TextView textViewHindiSent;
+    private TextView textViewEngSent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,8 @@ public class InfoActivity extends AppCompatActivity {
         this.textViewHindiWord = findViewById(R.id.textViewHindiWord);
         this.textViewEngWord = findViewById(R.id.textViewEngWord);
         this.textViewType = findViewById(R.id.textViewType);
+        this.textViewHindiSent = findViewById(R.id.textViewSentHindi);
+        this.textViewEngSent = findViewById(R.id.textViewSentEng);
     }
 
     //Display word information in view
@@ -67,6 +77,30 @@ public class InfoActivity extends AppCompatActivity {
                 break;
         }
         this.textViewType.setText(typeString);
+        this.textViewHindiSent.setText(word.getWordSentenceHindi());
+        this.textViewEngSent.setText(word.getWordSentenceEng());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Inflate menu
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_delete:
+                if (dbHelper.deleteWord(wordId)) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Deleted entry " + word.getWordWord(), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                Intent listIntent = new Intent(this, ListViewActivity.class);
+                this.startActivity(listIntent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

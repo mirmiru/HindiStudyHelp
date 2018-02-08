@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.example.milja.languageapp.R;
 import com.example.milja.languageapp.database.DBHelper;
@@ -13,16 +15,27 @@ public class MainActivity extends AppCompatActivity {
 
     DBHelper dbHelper = new DBHelper(this);
 
+    private EditText searchWord;
+    private String userEntry;
+    private long wordId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        //TEST
-        //dbHelper.getAllGenders();
-        //dbHelper.getAllTypes();
-        //dbHelper.getWordById(1);
+    protected void setUp() {
+        searchWord = findViewById(R.id.editTextSearchWord);
+        userEntry = searchWord.getText().toString();
+    }
 
+    protected void onButtonSearchClick(View view) {
+        setUp();
+        wordId = dbHelper.searchHindiWord(userEntry);
+        Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+        intent.putExtra("WordId", wordId);
+        startActivity(intent);
     }
 
     @Override

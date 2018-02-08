@@ -1,15 +1,15 @@
 [
     {
-        "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "/Users/Milja/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/1664787787474450c650090c0c5a4315/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+        "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/Users/Milja/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/1664787787474450c650090c0c5a4315/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/layout-v26_abc_screen_toolbar.xml.flat",
         "source": "/Users/Milja/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/1664787787474450c650090c0c5a4315/res/layout-v26/abc_screen_toolbar.xml"
     },
     {
-        "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
-        "source": "/Users/Milja/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/1664787787474450c650090c0c5a4315/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+        "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "/Users/Milja/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/1664787787474450c650090c0c5a4315/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",

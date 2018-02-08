@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginTop="32dp"
+        android:onClick="onButtonSearchClick"
         android:text="@string/buttonSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSearchWord" />
