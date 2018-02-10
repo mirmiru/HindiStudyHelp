@@ -5,9 +5,12 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.milja.languageapp.R;
 import com.example.milja.languageapp.database.DBHelper;
@@ -59,5 +62,27 @@ public class ListViewActivity extends AppCompatActivity {
         listView.setAdapter(listCursorAdapter);
         Log.d("MyLog", "createCursorAdapter");
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Inflate menu
+        getMenuInflater().inflate(R.menu.menu_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_main:
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                this.startActivity(mainIntent);
+                break;
+            case R.id.action_add:
+                Intent addIntent = new Intent(this, AddActivity.class);
+                this.startActivity(addIntent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

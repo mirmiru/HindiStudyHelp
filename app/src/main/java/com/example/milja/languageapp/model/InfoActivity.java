@@ -92,6 +92,10 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
+            case R.id.action_main:
+                Intent mainIntent = new Intent(this, MainActivity.class);
+                this.startActivity(mainIntent);
+                break;
             case R.id.action_delete:
                 if (dbHelper.deleteWord(wordId)) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Deleted entry " + word.getWordWord(), Toast.LENGTH_SHORT);
@@ -104,6 +108,7 @@ public class InfoActivity extends AppCompatActivity {
                 Intent editIntent = new Intent(this, EditActivity.class);
                 editIntent.putExtra("WordId", wordId);
                 this.startActivity(editIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
