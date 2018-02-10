@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".model.AddActivity" />
         <activity android:name=".model.InfoActivity" />
-        <activity android:name=".model.ListViewActivity"></activity>
+        <activity android:name=".model.ListViewActivity" />
+        <activity android:name=".model.EditActivity"></activity>
     </application>
 
 </manifest>

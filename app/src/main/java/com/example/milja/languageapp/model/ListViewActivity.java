@@ -39,6 +39,14 @@ public class ListViewActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Cursor c = dbHelper.getAllWordsCursor();
+        listCursorAdapter.changeCursor(c);
+        listCursorAdapter.notifyDataSetChanged();
+    }
+
     private void findViews() {
         this.listView = (ListView)findViewById(R.id.listView);
         Log.d("MyLog", "findViews");
@@ -47,6 +55,7 @@ public class ListViewActivity extends AppCompatActivity {
     private void createCursorAdapter() {
         Cursor c = dbHelper.getAllWordsCursor();
         this.listCursorAdapter = new ListCursorAdapter(this, c);
+
         listView.setAdapter(listCursorAdapter);
         Log.d("MyLog", "createCursorAdapter");
 

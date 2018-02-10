@@ -35,6 +35,7 @@ public class ListCursorAdapter extends CursorAdapter {
         return layoutInflater.inflate(R.layout.activity_list_view_cell, parent, false);
     }
 
+
     //Bind data from the cursor to individual row view
     @Override
     public void bindView(View view, Context context, Cursor cursor) {

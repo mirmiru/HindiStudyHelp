@@ -115,6 +115,8 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.i(LOGTAG, "Database has been upgraded from " + oldVersion + " to " + newVersion);
     }
 
+    //TODO: Add a new group to TYPE TABLE. (-> Return type groups alphabetically to spinner)
+
 
     //Add word
     public void addWord(Word word) {
@@ -152,6 +154,39 @@ public class DBHelper extends SQLiteOpenHelper {
             id = c.getLong(c.getColumnIndex(DBHelper.COLUMN_WORD_ID));
         }
         return id;
+    }
+
+    //TODO: Method for editing info for word. (placed in info activity as menu option, opens add-like activity)
+    public boolean editWord(Word word, long id) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        String selection = "_id=?";
+        String[] selectionArgs = new String[] {Long.toString(id)};
+
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_WORD_WORD, word.getWordWord());
+        values.put(COLUMN_WORD_TRANSLATION, word.getWordTranslation());
+        values.put(COLUMN_WORD_SENTENCEHINDI, word.getWordSentenceHindi());
+        values.put(COLUMN_WORD_SENTENCEENG, word.getWordSentenceEng());
+        values.put(COLUMN_WORD_GENDERID, word.getWordGenderId());
+        values.put(COLUMN_WORD_TYPEID, word.getWordTypeId());
+        values.put(COLUMN_WORD_DIFFICULT, word.getWordDifficult());
+
+        int result = db.update(TABLE_WORD, values, selection, selectionArgs);
+
+        //Set gender name -> getGenderGroupName
+        setWordGenderGroup(word);
+        //Set typename -> getTypeName
+        setWordTypeGroup(word);
+
+        Log.d("MyLog", "UPDATED: Id " + word.getWordId() + ": " + " H: " + word.getWordWord() + ", E: " + word.getWordTranslation() + ", HType: " + word.getWordTypeGroup() + ", HGender: " + word.getWordGenderGroup());
+
+        if (result == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean deleteWord(long id) {

@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 public class InfoActivity extends AppCompatActivity {
 
     DBHelper dbHelper = new DBHelper(this);
+    public static final int REQUEST_CODE_EDIT = 2;
 
     private Long wordId;
     private Word word;
@@ -99,6 +100,10 @@ public class InfoActivity extends AppCompatActivity {
                 Intent listIntent = new Intent(this, ListViewActivity.class);
                 this.startActivity(listIntent);
                 break;
+            case R.id.action_edit:
+                Intent editIntent = new Intent(this, EditActivity.class);
+                editIntent.putExtra("WordId", wordId);
+                this.startActivity(editIntent);
         }
         return super.onOptionsItemSelected(item);
     }

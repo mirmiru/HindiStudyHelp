@@ -18,4 +18,6 @@
     <string name="checkBoxDifficult">Difficult</string>
     <string name="RemoveWord">remove_word</string>
     <string name="Remove">Remove</string>
+    <string name="edit">Edit</string>
+    <string name="save_changes">Save changes</string>
 </resources>
