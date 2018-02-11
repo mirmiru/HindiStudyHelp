@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".model.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,11 +17,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".model.AddActivity" />
-        <activity android:name=".model.InfoActivity" />
-        <activity android:name=".model.ListViewActivity" />
-        <activity android:name=".model.EditActivity" />
-        <activity android:name=".model.DifficultListActivity"></activity>
+
+        <activity android:name=".model.AddActivity"
+            android:label="@string/addNewWord"/>
+        <activity android:name=".model.InfoActivity"
+            android:label="@string/wordInformation"/>
+        <activity android:name=".model.ListViewActivity"
+            android:label="@string/allWords"/>
+        <activity android:name=".model.EditActivity"
+            android:label="@string/editWord"/>
+        <activity android:name=".model.DifficultListActivity"
+            android:label="@string/difficultWords"/>
     </application>
 
 </manifest>

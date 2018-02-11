@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Feb 11 12:16:08 CET 2018
+#Sun Feb 11 13:31:58 CET 2018
 14.set=ANDROID_RESOURCE
 180.file=/Users/Milja/Desktop/Databas/Demon/LanguageApp2/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png
 118.set=ANDROID_RESOURCE

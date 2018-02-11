@@ -264,7 +264,7 @@ public class DBHelper extends SQLiteOpenHelper {
         long rows = DatabaseUtils.queryNumEntries(db, TABLE_WORD);
         Log.d("MyLog", "Rows: " + rows);
 
-        return db.query(TABLE_WORD, null, null, null, null, null, null);
+        return db.query(TABLE_WORD, null, null, null, null, null, COLUMN_WORD_WORD);
     }
 
     //TODO: DIFFICULT WORDS CURSOR

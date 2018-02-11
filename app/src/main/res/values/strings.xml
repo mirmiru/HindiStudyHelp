@@ -21,4 +21,9 @@
     <string name="edit">Edit</string>
     <string name="save_changes">Save changes</string>
     <string name="main">Main</string>
+    <string name="addNewWord">Add new word</string>
+    <string name="wordInformation">Word information</string>
+    <string name="allWords">All words</string>
+    <string name="editWord">Edit word</string>
+    <string name="difficultWords">Difficult words</string>
 </resources>

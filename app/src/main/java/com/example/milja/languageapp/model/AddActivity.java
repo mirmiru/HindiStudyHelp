@@ -106,6 +106,11 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    public void onCancelButtonClick(View view) {
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        startActivity(mainIntent);
+    }
+
     //Get checkbox value
     public void onCheckBoxClick(View view) {
         boolean checked = ((CheckBox) view).isChecked();

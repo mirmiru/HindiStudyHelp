@@ -24,11 +24,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.milja.languageapp.model.AddActivity" />
-        <activity android:name="com.example.milja.languageapp.model.InfoActivity" />
-        <activity android:name="com.example.milja.languageapp.model.ListViewActivity" />
-        <activity android:name="com.example.milja.languageapp.model.EditActivity" />
-        <activity android:name="com.example.milja.languageapp.model.DifficultListActivity" />
+        <activity
+            android:name="com.example.milja.languageapp.model.AddActivity"
+            android:label="@string/addNewWord" />
+        <activity
+            android:name="com.example.milja.languageapp.model.InfoActivity"
+            android:label="@string/wordInformation" />
+        <activity
+            android:name="com.example.milja.languageapp.model.ListViewActivity"
+            android:label="@string/allWords" />
+        <activity
+            android:name="com.example.milja.languageapp.model.EditActivity"
+            android:label="@string/editWord" />
+        <activity
+            android:name="com.example.milja.languageapp.model.DifficultListActivity"
+            android:label="@string/difficultWords" />
 
         <meta-data
             android:name="android.support.VERSION"
