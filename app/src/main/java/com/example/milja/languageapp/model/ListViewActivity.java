@@ -52,7 +52,6 @@ public class ListViewActivity extends AppCompatActivity {
 
     private void findViews() {
         this.listView = (ListView)findViewById(R.id.listView);
-        Log.d("MyLog", "findViews");
     }
 
     private void createCursorAdapter() {
@@ -60,8 +59,6 @@ public class ListViewActivity extends AppCompatActivity {
         this.listCursorAdapter = new ListCursorAdapter(this, c);
 
         listView.setAdapter(listCursorAdapter);
-        Log.d("MyLog", "createCursorAdapter");
-
     }
 
     @Override

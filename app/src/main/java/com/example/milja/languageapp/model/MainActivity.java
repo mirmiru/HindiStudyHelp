@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent listIntent = new Intent(this, ListViewActivity.class);
                 this.startActivity(listIntent);
                 break;
+            case R.id.action_list_difficult:
+                Intent difficultListIntent = new Intent(this, DifficultListActivity.class);
+                this.startActivity(difficultListIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

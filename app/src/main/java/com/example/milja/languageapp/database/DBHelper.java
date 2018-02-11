@@ -267,6 +267,18 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.query(TABLE_WORD, null, null, null, null, null, null);
     }
 
+    //TODO: DIFFICULT WORDS CURSOR
+    public Cursor getDifficultWordsCursor() {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String selection = COLUMN_WORD_DIFFICULT + "=?";
+        String[] selectionArgs = new String[] {Long.toString(2)};
+
+        Cursor cursor = db.query(TABLE_WORD, null, selection, selectionArgs, null, null, null);
+
+        return cursor;
+    }
+
 
     //Get all gender values
     public List<Gender> getAllGenders() {

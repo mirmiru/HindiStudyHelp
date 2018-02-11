@@ -17,4 +17,9 @@
         android:title="@string/list"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_list_difficult"
+        android:title="Difficult Words"
+        app:showAsAction="never"/>
+
 </menu>

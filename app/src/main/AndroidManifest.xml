@@ -19,7 +19,8 @@
         <activity android:name=".model.AddActivity" />
         <activity android:name=".model.InfoActivity" />
         <activity android:name=".model.ListViewActivity" />
-        <activity android:name=".model.EditActivity"></activity>
+        <activity android:name=".model.EditActivity" />
+        <activity android:name=".model.DifficultListActivity"></activity>
     </application>
 
 </manifest>

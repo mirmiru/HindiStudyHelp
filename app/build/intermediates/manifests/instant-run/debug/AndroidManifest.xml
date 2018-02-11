@@ -28,6 +28,7 @@
         <activity android:name="com.example.milja.languageapp.model.InfoActivity" />
         <activity android:name="com.example.milja.languageapp.model.ListViewActivity" />
         <activity android:name="com.example.milja.languageapp.model.EditActivity" />
+        <activity android:name="com.example.milja.languageapp.model.DifficultListActivity" />
 
         <meta-data
             android:name="android.support.VERSION"
